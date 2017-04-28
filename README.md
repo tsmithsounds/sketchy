@@ -1,0 +1,1 @@
+Created a sketch pad using HTML, CSS, Javascript, and jQuery.
