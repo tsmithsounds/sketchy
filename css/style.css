@@ -437,6 +437,7 @@ template {
 	background-color: none;
 	border: 10px solid black;
 	border-radius: 3px;
+	overflow: hidden;
   }
 
 .pixel {
@@ -462,19 +463,28 @@ template {
 	border: none;
 }
 
-.clearbutton {
+.buttoncontainer {
+	width: 100%;
+	height: 50px;
+	display: inline-block;
+	text-align: center;
+}
+
+.button {
 	margin: auto;
-	width: 130px;
+	width: 160px;
 	height: 35px;
 	background-color: #E86C6E;
 	border-radius: 3px;
-	display: flex;
+	display: inline-block;
 	align-content: center;
 	justify-content: center;
 	border: none;
 	color:white;
 	font-family: "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 	font-size: 12pt;
+	cursor: pointer;
+	
 }
 
 
