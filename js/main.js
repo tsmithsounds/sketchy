@@ -1,76 +1,47 @@
-
-
-var $pixel = ("<div class='pixel'></div>");
-var r = 16;
-var newres = (r*r);
-
-
 $(document).ready(function() {
-		for (i=0; i<=255; i++) {
-  		$(".container").append($pixel);
-	}
-});
+  
+  // Make Grid
+  
+  var lengthwidth = 16;
+  
+  function makegrid(lengthwidth) {
+      for (i=0; i<=((lengthwidth * lengthwidth)-1); i++) {
+      $(".container").append("<div class='pixel'></div>"); 
+      } 
+        $(".pixel").css("height", (700/lengthwidth));
+        $(".pixel").css("width", (700/lengthwidth));
+  }
+  
+  // Draw
+  
+  function draw() {
+    $(".pixel").mouseenter(function() {
+      $(this).addClass("pixel2");
+    })
+  }
+  
+  // Clear
+  
+  function clear() {
+    $("#clearbutton").click(function() {
+      $(".pixel").removeClass("pixel2");
+    })
+  }
+  
+makegrid(lengthwidth);
 
-$(document).ready(function() {
-	$(".pixel").mouseenter(function() {
-		$(this).addClass("pixel2");
-	});	
-});
+draw();
+  
+clear();
 
+  // New Grid Resolution
+  
+    $("#resizebutton").click(function() {
+      $(".pixel").removeClass("pixel2");
+      newlengthwidth = prompt("Pick a number!");
+        makegrid(newlengthwidth);
+        draw();
+    })
+})
 
-$(document).ready(function() {
-	$("#clearbutton").click(function() {
-		$(".pixel").removeClass("pixel2");
-		$(".pixel").mouseenter(function() {
-			$(this).addClass("pixel2");
-		});
-	});
-});
-
-
-
-
-	$("#resizebutton").click(function() {
-		$(".pixel").removeClass("pixel2");
-		r = prompt("Pick a number!");
-			$(".pixel").css("height", (528/r));
-			$(".pixel").css("width", (528/r));
-		newres = (r*r);
-		resolution();
-	})	
-
-
-function resolution() {
-	for (i=0; i<=newres; i++) {
-  	$(".container").append($pixel);
-	}
-}
-		
-
-	
-
-		
-		
-		
-		/*
-		if (r<=100) {
-				$(".pixel").css("height", Math.floor(528/r));
-				$(".pixel").css("width", Math.floor(528/r));
-				for (i=0; i<=((r * r)-1); i++) {
-  					$(".container").append($pixel);
-				}
-			} else { 
-				(r=100)
-			}
-				$(".pixel").css("height", Math.floor(528/r));
-				$(".pixel").css("width", Math.floor(528/r));
-				for (i=0; i<=((r * r)-1); i++) {
-  					$(".container").append($pixel);
-				}
-		});
-		
-});
-
-*/
-
-
+ 
